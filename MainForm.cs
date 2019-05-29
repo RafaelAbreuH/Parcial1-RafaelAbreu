@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoParcial.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace ProyectoParcial
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void ProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rProductos ver = new rProductos();
+            ver.MdiParent = this;
+            ver.Show();
         }
     }
 }

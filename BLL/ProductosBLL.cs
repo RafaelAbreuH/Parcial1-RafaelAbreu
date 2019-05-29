@@ -12,6 +12,13 @@ namespace ProyectoParcial.BLL
 {
     public class ProductosBLL
     {
+
+        public static double ValorInv(double Costo, double Existencia)
+        {
+            return Costo * Existencia;
+        }
+
+
         public static bool Guardar(Productos producto)
         {
             bool paso = false;

@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ProductosBLL.cs" />
+    <Compile Include="DAL\Contexto.cs" />
     <Compile Include="Entidades\Inventario.cs" />
     <Compile Include="Entidades\Productos.cs" />
     <Compile Include="MainForm.cs">
@@ -87,12 +89,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BLL\" />
     <Folder Include="UI\Consultas\" />
     <Folder Include="UI\Registros\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\Script\SQLQuery1.sql" />
+    <Content Include="DAL\Script\Parcial1Db.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

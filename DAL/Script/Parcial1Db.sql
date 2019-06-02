@@ -5,7 +5,7 @@ use Parcial1Db
 create table Productos
 (
 	ProductoId int primary key identity,
-	Desripcion varchar(max),
+	Descripcion varchar(max),
 	Existencia int,
 	Costo int,
 	ValorInventario int
@@ -14,5 +14,7 @@ create table Productos
 
 create table Inventario
 (
+    InventarioId int primary key identity,
 	ValorTotalInventario float
 )
+

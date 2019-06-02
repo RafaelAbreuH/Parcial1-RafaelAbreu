@@ -18,23 +18,37 @@ namespace ProyectoParcial.UI.Registros
         {
             InitializeComponent();
         }
-        public void Check_If_Int_On_TextChanged(object sender, EventArgs e)
+        public void soloNumeros(KeyPressEventArgs e)
         {
-
-            TextBox textbox = (TextBox)sender;
-
-            if (textbox.Text.Length == 0) { return; }
-
-            // Check the new Text value if it's only numbers
-            byte parsedValue;
-            if (!byte.TryParse(textbox.Text[(textbox.Text.Length - 1)].ToString(), out parsedValue))
+            try
             {
-                // Remove the last character as it wasn't a number
-                textbox.Text = textbox.Text.Remove((textbox.Text.Length - 1));
-
-                // Move the cursor to the end of text
-                textbox.SelectionStart = textbox.Text.Length;
+                if (Char.IsNumber(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsPunctuation(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
             }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void ValorInventario()
+        {
+            if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
+                ValorInventariotextBox.Text = Convert.ToString(Convert.ToInt32(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
         }
 
         private void Limpiar()
@@ -116,44 +130,26 @@ namespace ProyectoParcial.UI.Registros
             }
             return paso;
         }
+        private void ExistenciatextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+          soloNumeros(e);
+        }
+
+
         private void ExistenciatextBox_TextChanged(object sender, EventArgs e)
         {
-            double relt = 0;
-            if (ExistenciatextBox.Text != string.Empty)
-            {
-                if (CostotextBox.Text != string.Empty)
-                {
-                    if (System.Text.RegularExpressions.Regex.IsMatch(ExistenciatextBox.Text, "^[a-zA-Z ]"))
-                    {
-                        ExistenciatextBox.Text.Remove(ExistenciatextBox.Text.Length - 1, 1);
-                        MessageBox.Show("Este Campo solo acepta numeros");
-                    }
-                    else
-                    {
-                        relt = ProductosBLL.ValorInv(Convert.ToInt32(CostotextBox.Text), Convert.ToInt32(ExistenciatextBox.Text));
-                        ValorInventariotextBox.Text = Convert.ToString(relt);
-                    }
-                }
-            }
-
+            ValorInventario();
         }
 
 
         private void CostotextBox_TextChanged(object sender, EventArgs e)
         {
-
-
-            double relt = 0;
-            if (ExistenciatextBox.Text != string.Empty)
-            {
-                if (CostotextBox.Text != string.Empty)
-                {
-                    relt = ProductosBLL.ValorInv(Convert.ToInt32(CostotextBox.Text), Convert.ToInt32(ExistenciatextBox.Text));
-                    ValorInventariotextBox.Text = Convert.ToString(relt);
-                }
-            }
+            ValorInventario();
         }
-
+        private void CostotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            soloNumeros(e);
+        }
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -212,5 +208,6 @@ namespace ProyectoParcial.UI.Registros
                 MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
+
     }
 }

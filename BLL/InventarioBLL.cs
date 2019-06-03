@@ -106,7 +106,7 @@ namespace ProyectoParcial.BLL
             try
             {
                 lista = ProductosBLL.Getlist(p => true);
-                decimal total = 0;
+                decimal total = 0.0m;
 
                 foreach (var obj in lista)
                 {

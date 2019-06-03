@@ -48,7 +48,7 @@ namespace ProyectoParcial.UI.Registros
         private void ValorInventario()
         {
             if (CostotextBox.Text.Length > 0 && ExistenciatextBox.Text.Length > 0)
-                ValorInventariotextBox.Text = Convert.ToString(Convert.ToInt32(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
+                ValorInventariotextBox.Text = Convert.ToString(Convert.ToDecimal(CostotextBox.Text) * Convert.ToInt32(ExistenciatextBox.Text));
         }
 
         private void Limpiar()
@@ -71,11 +71,11 @@ namespace ProyectoParcial.UI.Registros
         private Productos LlenaClase()
         {
             Productos producto = new Productos();
-            producto.ProductoId = Convert.ToInt32(IdnumericUpDown.Value);
+            producto.ProductoId = (int)(IdnumericUpDown.Value);
             producto.Descripcion = DescripciontextBox.Text;
-            producto.Costo = Convert.ToInt32(CostotextBox.Text);
+            producto.Costo = Convert.ToDecimal(CostotextBox.Text);
             producto.Existencia = Convert.ToInt32(ExistenciatextBox.Text);
-            producto.ValorInventario = Convert.ToInt32(ValorInventariotextBox.Text);
+            producto.ValorInventario = Convert.ToDecimal(ValorInventariotextBox.Text);
 
             return producto;
 
@@ -87,7 +87,7 @@ namespace ProyectoParcial.UI.Registros
             DescripciontextBox.Text = producto.Descripcion;
             CostotextBox.Text = Convert.ToString(producto.Costo);
             ExistenciatextBox.Text = Convert.ToString(producto.Existencia);
-            ValorInventariotextBox.Text = Convert.ToString(producto.ValorInventario);
+
         }
 
         private bool Validar()
@@ -178,7 +178,6 @@ namespace ProyectoParcial.UI.Registros
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            Inventario inventario = new Inventario();
             Productos producto;
             bool paso = false;
 
@@ -213,5 +212,23 @@ namespace ProyectoParcial.UI.Registros
 
         }
 
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            MyerrorProvider.Clear();
+            int id;
+            int.TryParse(IdnumericUpDown.Text, out id);
+
+            Limpiar();
+            if (!ExisteEnLaBaseDeDatos())
+            {
+                MessageBox.Show("No se peude Eliminar un Producto que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                ProductosBLL.Eliminar(id);
+                MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

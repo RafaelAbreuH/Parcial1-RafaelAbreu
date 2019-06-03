@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace ProyectoParcial.BLL
 {
-    class InventarioBLL
+    public class InventarioBLL
     {
         public static Inventario Buscar()
         {
 
             Contexto contexto = new Contexto();
             Inventario valor = new Inventario();
-
+            int id = 1;
             try
             {
-                valor = contexto.Inventario.Find(1);
+                valor = contexto.Inventario.Find(id);
             }
             catch (Exception)
             {

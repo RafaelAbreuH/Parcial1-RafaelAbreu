@@ -13,7 +13,7 @@ namespace ProyectoParcial.BLL
     public class ProductosBLL
     {
 
-        public static double ValorInv(double Costo, double Existencia)
+        public static decimal ValorInv(decimal Costo, decimal Existencia)
         {
             return Costo * Existencia;
         }

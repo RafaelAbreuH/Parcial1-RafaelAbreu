@@ -12,7 +12,7 @@ create table Productos
 )
 
 
-create table Inventario
+create table Inventarios
 (
     InventarioId int primary key identity,
 	ValorTotalInventario decimal

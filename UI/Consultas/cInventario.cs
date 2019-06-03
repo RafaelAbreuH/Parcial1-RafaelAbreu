@@ -34,7 +34,7 @@ namespace ProyectoParcial.UI.Consultas
                 }
                 else
                 {
-                        MessageBox.Show("No hay ningun Producto registrado");
+                        MessageBox.Show("No hay ningun Producto registrado!");
                 }
             }
             catch(Exception)

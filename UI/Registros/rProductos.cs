@@ -178,18 +178,22 @@ namespace ProyectoParcial.UI.Registros
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
+            Inventario inventario = new Inventario();
             Productos producto;
             bool paso = false;
 
             if (!Validar())
                 return;
 
+
             producto = LlenaClase();
 
 
             //determinar si es guardar o modificar
             if (IdnumericUpDown.Value == 0)
+            {
                 paso = ProductosBLL.Guardar(producto);
+            }
             else
             {
                 if (!ExisteEnLaBaseDeDatos())

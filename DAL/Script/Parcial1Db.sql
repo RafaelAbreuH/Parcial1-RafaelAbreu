@@ -7,14 +7,14 @@ create table Productos
 	ProductoId int primary key identity,
 	Descripcion varchar(max),
 	Existencia int,
-	Costo int,
-	ValorInventario int
+	Costo decimal,
+	ValorInventario decimal
 )
 
 
 create table Inventario
 (
     InventarioId int primary key identity,
-	ValorTotalInventario float
+	ValorTotalInventario decimal
 )
 

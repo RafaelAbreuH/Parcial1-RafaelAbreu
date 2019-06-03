@@ -11,12 +11,12 @@ namespace ProyectoParcial.Entidades
     {
         [Key]
         public int InventarioId { get; set; }
-        public float ValorTotalInventario { get; set; }
+        public decimal ValorTotalInventario { get; set; }
 
         public Inventario()
         {
             InventarioId = 0;
-            ValorTotalInventario = 0f;
+            ValorTotalInventario = 0;
         }
     }
 }

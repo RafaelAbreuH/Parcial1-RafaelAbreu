@@ -64,7 +64,7 @@ namespace ProyectoParcial.UI.Registros
 
         private bool ExisteEnLaBaseDeDatos()
         {
-            Productos producto = ProductosBLL.Buscar((int)IdnumericUpDown.Value);
+            Productos producto = ProductosBLL.Buscar(Convert.ToInt32(IdnumericUpDown.Value));
             return (producto != null);
         }
 
@@ -95,14 +95,14 @@ namespace ProyectoParcial.UI.Registros
             bool paso = true;
             MyerrorProvider.Clear();
 
-            if(DescripciontextBox.Text == string.Empty)
+            if (DescripciontextBox.Text == string.Empty)
             {
                 MyerrorProvider.SetError(DescripciontextBox, " Debes poner una descripcion");
                 DescripciontextBox.Focus();
                 paso = false;
             }
 
-            if(ExistenciatextBox.Text == "0")
+            if (ExistenciatextBox.Text == "0")
             {
                 MyerrorProvider.SetError(ExistenciatextBox, "Existencia no puede ser 0");
                 ExistenciatextBox.Focus();
@@ -132,7 +132,7 @@ namespace ProyectoParcial.UI.Registros
         }
         private void ExistenciatextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-          soloNumeros(e);
+            soloNumeros(e);
         }
 
 
@@ -206,7 +206,7 @@ namespace ProyectoParcial.UI.Registros
             //informar el resultado
             if (paso)
                 MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
             else
                 MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -218,17 +218,21 @@ namespace ProyectoParcial.UI.Registros
             int id;
             int.TryParse(IdnumericUpDown.Text, out id);
 
-            Limpiar();
-            if (!ExisteEnLaBaseDeDatos())
+
+            if(ProductosBLL.Eliminar(id))
+            {
+                MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Limpiar();
+            }
+            else
             {
                 MessageBox.Show("No se peude Eliminar un Producto que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else
-            {
-                ProductosBLL.Eliminar(id);
-                MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            
+
         }
+
     }
 }

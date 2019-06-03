@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace ProyectoParcial.Entidades
 {
-    public class Inventario
+    public class Inventarios
     {
         [Key]
         public int InventarioId { get; set; }
         public decimal ValorTotalInventario { get; set; }
 
-        public Inventario()
+        public Inventarios()
         {
             InventarioId = 0;
             ValorTotalInventario = 0;

@@ -12,11 +12,11 @@ namespace ProyectoParcial.BLL
 {
     public class InventarioBLL
     {
-        public static Inventario Buscar()
+        public static Inventarios Buscar()
         {
 
             Contexto contexto = new Contexto();
-            Inventario valor = new Inventario();
+            Inventarios valor = new Inventarios();
             int id = 1;
             try
             {
@@ -34,7 +34,7 @@ namespace ProyectoParcial.BLL
             return valor;
         }
 
-        public static bool Guardar(Inventario valor)
+        public static bool Guardar(Inventarios valor)
         {
             Contexto contexto = new Contexto();
             bool paso = false;
@@ -60,7 +60,7 @@ namespace ProyectoParcial.BLL
         public static void ModificarValor(decimal total)
         {
 
-            Inventario valor = new Inventario(){InventarioId = 1, ValorTotalInventario = total };
+            Inventarios valor = new Inventarios(){InventarioId = 1, ValorTotalInventario = total };
 
             Contexto contexto = new Contexto();
 
@@ -80,9 +80,9 @@ namespace ProyectoParcial.BLL
             }
 
         }
-        public static List<Inventario> GetList(Expression<Func<Inventario, bool>> valor)
+        public static List<Inventarios> GetList(Expression<Func<Inventarios, bool>> valor)
         {
-            List<Inventario> Lista = new List<Inventario>();
+            List<Inventarios> Lista = new List<Inventarios>();
             Contexto contexto = new Contexto();
             try
             {

@@ -23,7 +23,7 @@ namespace ProyectoParcial.UI.Consultas
 
         private void SyncTotal()
         {
-            Inventario total = new Inventario();
+            Inventarios total = new Inventarios();
 
             try
             {
@@ -34,7 +34,10 @@ namespace ProyectoParcial.UI.Consultas
                 }
                 else
                 {
-                        MessageBox.Show("No hay ningun Producto registrado!");
+                    Inventarios valor = new Inventarios();
+                    InventarioBLL.Guardar(valor);
+                    InventarioBLL.Actualizar();
+                    valor = InventarioBLL.Buscar();
                 }
             }
             catch(Exception)

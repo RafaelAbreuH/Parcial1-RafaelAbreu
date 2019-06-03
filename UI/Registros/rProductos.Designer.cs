@@ -204,6 +204,7 @@
             this.UbicacioncomboBox.Name = "UbicacioncomboBox";
             this.UbicacioncomboBox.Size = new System.Drawing.Size(100, 21);
             this.UbicacioncomboBox.TabIndex = 43;
+            this.UbicacioncomboBox.SelectedIndexChanged += new System.EventHandler(this.UbicacioncomboBox_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -248,6 +249,7 @@
             this.Controls.Add(this.label1);
             this.Name = "rProductos";
             this.Text = "Registro Productos";
+            this.Load += new System.EventHandler(this.RProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).EndInit();
             this.ResumeLayout(false);

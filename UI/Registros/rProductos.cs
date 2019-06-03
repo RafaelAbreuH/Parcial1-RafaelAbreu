@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,11 @@ namespace ProyectoParcial.UI.Registros
         public rProductos()
         {
             InitializeComponent();
+        }
+
+        private void LlenarComboBox()
+        {
+
         }
         public void soloNumeros(KeyPressEventArgs e)
         {
@@ -59,15 +65,19 @@ namespace ProyectoParcial.UI.Registros
             ExistenciatextBox.Text = "0";
             CostotextBox.Text = "0";
             ValorInventariotextBox.Text = string.Empty;
+            UbicacioncomboBox.SelectedValue = 1;
             MyerrorProvider.Clear();
 
         }
+
 
         private bool ExisteEnLaBaseDeDatos()
         {
             Productos producto = ProductosBLL.Buscar(Convert.ToInt32(IdnumericUpDown.Value));
             return (producto != null);
         }
+
+
 
         private Productos LlenaClase()
         {
@@ -77,6 +87,7 @@ namespace ProyectoParcial.UI.Registros
             producto.Costo = Convert.ToDecimal(CostotextBox.Text);
             producto.Existencia = Convert.ToInt32(ExistenciatextBox.Text);
             producto.ValorInventario = Convert.ToDecimal(ValorInventariotextBox.Text);
+            
 
             return producto;
 
@@ -258,6 +269,7 @@ namespace ProyectoParcial.UI.Registros
             else
                 MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -284,11 +296,21 @@ namespace ProyectoParcial.UI.Registros
             
 
         }
-
+        //que las Ubicaciones no se repitan
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
             rUbicacion ver = new rUbicacion();
             ver.ShowDialog();
+        }
+
+        private void RProductos_Load(object sender, EventArgs e)
+        {
+  
+        }
+
+        private void UbicacioncomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

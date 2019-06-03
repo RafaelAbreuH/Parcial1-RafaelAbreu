@@ -28,6 +28,7 @@ namespace ProyectoParcial.UI.Registros
                 }
                 else if (Char.IsControl(e.KeyChar))
                 {
+        
                     e.Handled = false;
                 }
                 else if (Char.IsPunctuation(e.KeyChar))
@@ -132,7 +133,20 @@ namespace ProyectoParcial.UI.Registros
         }
         private void ExistenciatextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            soloNumeros(e);
+           // soloNumeros(e);
+           // Solo acepta numero del 1-9 y Backspace.
+            const int BACKSPACE = 8;
+            const int ZERO = 48;
+            const int NINE = 57;
+
+            int keyvalue = e.KeyChar;
+
+            if ((keyvalue == BACKSPACE) ||
+            ((keyvalue >= ZERO) && (keyvalue <= NINE))) return;
+            // Allow nothing else
+            e.Handled = true;
+
+
         }
 
 
@@ -149,6 +163,21 @@ namespace ProyectoParcial.UI.Registros
         private void CostotextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             soloNumeros(e);
+            if (e.KeyChar == '.')
+            {
+                // No deja poner un punto primero
+                if (CostotextBox.TextLength < 1)
+                    e.Handled = true;
+
+                //Para que no deje poner mas de 1 Punto
+                if (e.KeyChar == '.' && CostotextBox.Text.IndexOf('.') > -1)
+                    e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+
         }
         private void Nuevobutton_Click(object sender, EventArgs e)
         {

@@ -18,3 +18,9 @@ create table Inventarios
 	ValorTotalInventario decimal
 )
 
+create table Ubicaciones
+(
+	IdUbicacion int primary key identity,
+	Descripcion varchar(max)
+
+)

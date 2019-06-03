@@ -89,6 +89,9 @@ namespace ProyectoParcial.UI.Registros
             CostotextBox.Text = Convert.ToString(producto.Costo);
             ExistenciatextBox.Text = Convert.ToString(producto.Existencia);
 
+            UbicacioncomboBox.SelectedValue = producto.IdUbicacion;
+          //  LlenarComboBox();
+
         }
 
 
@@ -110,14 +113,6 @@ namespace ProyectoParcial.UI.Registros
         {
             bool paso = true;
             MyerrorProvider.Clear();
-
-            if (IdnumericUpDown.Value > 0)
-            {
-                MyerrorProvider.SetError(IdnumericUpDown, "Debes Digitar el ID");
-                IdnumericUpDown.Focus();
-                paso = false;
-
-            }
 
 
             if (DescripciontextBox.Text == string.Empty)
@@ -272,7 +267,7 @@ namespace ProyectoParcial.UI.Registros
             int id;
             int.TryParse(IdnumericUpDown.Text, out id);
 
-            if (!ValidarEliminar());
+            if (!ValidarEliminar())
             return;
 
             if(ProductosBLL.Eliminar(id))
@@ -290,5 +285,10 @@ namespace ProyectoParcial.UI.Registros
 
         }
 
+        private void Agregarbutton_Click(object sender, EventArgs e)
+        {
+            rUbicacion ver = new rUbicacion();
+            ver.ShowDialog();
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace ProyectoParcial.Entidades
         public int Existencia { get; set; }
         public decimal Costo { get; set; }
         public decimal ValorInventario { get; set; }
+        public int IdUbicacion { get; set; }
 
         public Productos()
         {
@@ -23,6 +24,7 @@ namespace ProyectoParcial.Entidades
             Existencia = 0;
             Costo = 0;
             ValorInventario = 0;
+            IdUbicacion = 0;
         }
     }
 }

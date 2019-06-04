@@ -83,6 +83,26 @@ namespace ProyectoParcial.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plus_5_16 {
+            get {
+                object obj = ResourceManager.GetObject("plus-5-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_5_24 {
+            get {
+                object obj = ResourceManager.GetObject("plus-5-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap save_16 {
             get {
                 object obj = ResourceManager.GetObject("save-16", resourceCulture);

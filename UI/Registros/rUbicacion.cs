@@ -59,15 +59,6 @@ namespace ProyectoParcial.UI.Registros
             bool paso = true;
             MyerrorProvider.Clear();
 
-            if (IdnumericUpDown.Value > 0)
-            {
-                MyerrorProvider.SetError(IdnumericUpDown, "Debes Digitar el ID");
-                IdnumericUpDown.Focus();
-                paso = false;
-
-            }
-
-
             if (DescripciontextBox.Text == string.Empty)
             {
                 MyerrorProvider.SetError(DescripciontextBox, " Debes poner una descripcion");

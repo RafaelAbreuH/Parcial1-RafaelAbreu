@@ -125,6 +125,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="DAL\Script\Parcial1Db.sql" />
+    <None Include="Resources\plus-5-16.png" />
+    <None Include="Resources\plus-5-24.png" />
     <None Include="Resources\sinchronize-32.gif" />
     <None Include="Resources\sinchronize-16%281%29.png" />
     <None Include="Resources\save-16.png" />

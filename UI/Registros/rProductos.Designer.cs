@@ -40,13 +40,13 @@
             this.CostotextBox = new System.Windows.Forms.TextBox();
             this.ValorInventariotextBox = new System.Windows.Forms.TextBox();
             this.MyerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.UbicacioncomboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Agregarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
-            this.UbicacioncomboBox = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Agregarbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -145,6 +145,34 @@
             // 
             this.MyerrorProvider.ContainerControl = this;
             // 
+            // UbicacioncomboBox
+            // 
+            this.UbicacioncomboBox.FormattingEnabled = true;
+            this.UbicacioncomboBox.Location = new System.Drawing.Point(87, 199);
+            this.UbicacioncomboBox.Name = "UbicacioncomboBox";
+            this.UbicacioncomboBox.Size = new System.Drawing.Size(100, 21);
+            this.UbicacioncomboBox.TabIndex = 43;
+            this.UbicacioncomboBox.SelectedIndexChanged += new System.EventHandler(this.UbicacioncomboBox_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 202);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "Ubicacion";
+            // 
+            // Agregarbutton
+            // 
+            this.Agregarbutton.Image = global::ProyectoParcial.Properties.Resources.plus_5_24;
+            this.Agregarbutton.Location = new System.Drawing.Point(193, 199);
+            this.Agregarbutton.Name = "Agregarbutton";
+            this.Agregarbutton.Size = new System.Drawing.Size(56, 21);
+            this.Agregarbutton.TabIndex = 46;
+            this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
+            // 
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = global::ProyectoParcial.Properties.Resources.delete_16;
@@ -196,34 +224,6 @@
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
-            // 
-            // UbicacioncomboBox
-            // 
-            this.UbicacioncomboBox.FormattingEnabled = true;
-            this.UbicacioncomboBox.Location = new System.Drawing.Point(87, 199);
-            this.UbicacioncomboBox.Name = "UbicacioncomboBox";
-            this.UbicacioncomboBox.Size = new System.Drawing.Size(100, 21);
-            this.UbicacioncomboBox.TabIndex = 43;
-            this.UbicacioncomboBox.SelectedIndexChanged += new System.EventHandler(this.UbicacioncomboBox_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 202);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
-            this.label6.TabIndex = 44;
-            this.label6.Text = "Ubicacion";
-            // 
-            // Agregarbutton
-            // 
-            this.Agregarbutton.Location = new System.Drawing.Point(193, 199);
-            this.Agregarbutton.Name = "Agregarbutton";
-            this.Agregarbutton.Size = new System.Drawing.Size(38, 23);
-            this.Agregarbutton.TabIndex = 46;
-            this.Agregarbutton.Text = "button2";
-            this.Agregarbutton.UseVisualStyleBackColor = true;
-            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
             // rProductos
             // 

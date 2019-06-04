@@ -18,12 +18,19 @@ namespace ProyectoParcial.UI.Registros
         public rProductos()
         {
             InitializeComponent();
+            LlenarComboBox();
         }
 
         private void LlenarComboBox()
         {
+            var listado = new List<Ubicaciones>();
+            listado = UbicacionesBLL.Getlist(p => true);
+            UbicacioncomboBox.DataSource = listado;
+            UbicacioncomboBox.DisplayMember = "Descripcion";
+            UbicacioncomboBox.ValueMember = "IdUbicacion";
 
         }
+
         public void soloNumeros(KeyPressEventArgs e)
         {
             try
